@@ -1,4 +1,4 @@
-use connect_four;
+connect_four;
 db.dropDatabase();
 
 db.initialise.insertOne({

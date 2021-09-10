@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongo').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router');
 const cors = require('cors');
 
@@ -21,3 +21,5 @@ MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true }, (err
     console.log(`app listening on port ${this.address().port}`);
   })
 })
+ 
+// URL: http://localhost:5000/api/games
