@@ -16,11 +16,7 @@ const createRouter = function(collection) {
         .find()
         .toArray()
         .then((docs) => res.json(docs))
-        .catch((err) => {
-            console.error(err);
-            res.status(500);
-            res.json({status: 500, error: err})
-        })
+        .catch(errorHandler)
     });
 
     router.post('/', (req,res) => {
@@ -28,13 +24,9 @@ const createRouter = function(collection) {
         collection
         .insertOne(newData)
         .then((result) => {
-            res.json(result.ops[0])
+            res.json(result.insertedId)
         })
-        .catch((err) => {
-            console.error(err);
-            res.status(500);
-            res.json({status: 500, error: err})
-        })
+        .catch(errorHandler)
     })
     return router;
 };
