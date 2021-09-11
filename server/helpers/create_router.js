@@ -50,6 +50,21 @@ const createRouter = function(collection) {
         .catch(errorHandler)
     })
 
+// Update one
+    router.put('/:id', (req, res) => {
+        const id = req.params.id;
+        const updatedData = req.body;
+        collection
+        .updateOne(
+            { _id: ObjectId(id)},
+            { $set: updatedData}
+        )
+        .then((result) => {
+            res.json(result)
+        })
+        .catch(errorHandler)
+    })
+
     return router;
 };
 
