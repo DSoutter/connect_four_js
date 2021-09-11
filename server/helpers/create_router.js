@@ -10,7 +10,7 @@ const createRouter = function(collection) {
         res.status(500);
         res.json({status: 500, error: err});
     }
-
+// Get all
     router.get('/', (req, res) => {
         collection
         .find()
@@ -19,6 +19,16 @@ const createRouter = function(collection) {
         .catch(errorHandler)
     });
 
+// Get one
+    router.get('/:id', (req, res) => {
+        const id = req.params.id;
+        collection
+        .findOne({_id: ObjectId(id)})
+        .then((doc) => res.json(doc))
+        .catch(errorHandler)
+    })
+
+// Post new
     router.post('/', (req,res) => {
         const newData= req.body;
         collection
@@ -28,6 +38,10 @@ const createRouter = function(collection) {
         })
         .catch(errorHandler)
     })
+
+// Delete one
+
+
     return router;
 };
 
