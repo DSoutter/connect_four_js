@@ -1,4 +1,8 @@
 import React from 'react';
+import HeaderComponent from '../components/HeaderComponent';
+import GameBoardComponent from '../components/GameBoardComponent';
+import ScoreComponent from '../components/ScoreComponent';
+import FooterComponent from '../components/FooterComponent';
 
 const ScreenContainer = () => {
 
