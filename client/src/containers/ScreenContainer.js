@@ -3,30 +3,25 @@ import HeaderComponent from '../components/HeaderComponent';
 import GameBoardComponent from '../components/GameBoardComponent';
 import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
+import GamesService from '../services/GameServices'
+
 
 const ScreenContainer = () => {
 
-    const [scores, setScores] = useState('')
+    const [scores, setScores] = useState([])
 
-    // useEffect(() => {
-    //     fetchScores()
-    //     console.log(scores);
-    // }, [])
-
-    // const fetchScores = () => {
-    //     fetch('http://localhost:5000/api/scores')
-    //     .then(res => res.json())
-    //     .then(scores => setScores(scores));
-    // }
-
-
+    useEffect(() => {
+        GamesService.getScores()
+        .then(scores => setScores(scores))
+        console.log(scores)
+    }, []) 
 
     return (
         <>
         <HeaderComponent/>
         <h1>I am the screen container</h1>
         <GameBoardComponent/>
-        {/* <ScoreComponent scores={scores}/> */}
+        <ScoreComponent scores={scores}/>
         <FooterComponent/>
         </>
     )

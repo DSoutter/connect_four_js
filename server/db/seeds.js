@@ -1,5 +1,5 @@
 connect_four;
-// db.dropDatabase();
+db.dropDatabase();
 
 db.scores.insertMany([
     {
