@@ -1,6 +1,13 @@
 connect_four;
-db.dropDatabase();
+// db.dropDatabase();
 
-db.initialise.insertOne({
-    dbWorking: "True"
-});
+db.scores.insertMany([
+    {
+        playerName: "One",
+        playerWins: 10
+    },
+    {
+        playerName: "Two",
+        playerWins: 0
+    }
+])

@@ -14,8 +14,11 @@ MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true }, (err
 
   const db = client.db('connect_four');
   const gamesCollection = db.collection('games');
-  const gamesRouter = createRouter(gamesCollection)
+  const scoresCollection = db.collection('scores');
+  const gamesRouter = createRouter(gamesCollection);
+  const scoresRouter = createRouter(scoresCollection);
   app.use('/api/games', gamesRouter);
+  app.use('/api/scores', scoresRouter)
 
   app.listen(5000, function(){
     console.log(`app listening on port ${this.address().port}`);
