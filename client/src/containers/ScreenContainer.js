@@ -8,18 +8,18 @@ import GamesService from '../services/GameServices'
 
 const ScreenContainer = () => {
 
-    const [scores, setScores] = useState([])
-    const [games, setGames] = useState([])
+    const [games, setGames] = useState([{winner : 0}])
 
     useEffect(() => {
-        GamesService.getScores()
-        .then(scores => setScores(scores))
-        console.log(scores)
+        GamesService.getGames()
+        .then(games=> setGames(games))
+        // console.log(games[0])
     }, []) 
 
     const endGameResults = finishedGame => {
         GamesService.postGame(finishedGame)
         .then(savedGames => setGames([...games, savedGames]))
+        console.log(games)
     }
 
     return (
@@ -27,7 +27,7 @@ const ScreenContainer = () => {
         <HeaderComponent/>
         <h1>I am the screen container</h1>
         <GameBoardComponent endGameResults={endGameResults}/>
-        <ScoreComponent scores={scores}/>
+        <ScoreComponent games = {games}/>
         <FooterComponent/>
         </>
     )

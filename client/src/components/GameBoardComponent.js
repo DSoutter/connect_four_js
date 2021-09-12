@@ -12,7 +12,7 @@ const GameBoardComponent = ({endGameResults}) => {
         [0, 0, 0, 0, 0, 0, 0]
     ]
 
-    const gameBoard = startGameBoard
+    let gameBoard = startGameBoard
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,8 +20,6 @@ const GameBoardComponent = ({endGameResults}) => {
             results: gameBoard,
             winner: player
         }
-        console.log(player)
-
         endGameResults(results)
         gameBoard = startGameBoard
     }
@@ -57,7 +55,7 @@ const GameBoardComponent = ({endGameResults}) => {
                 player = 2
         }}
 
-        console.log(startGameBoard)
+        console.log(player)
         
     }
 
@@ -65,16 +63,15 @@ const GameBoardComponent = ({endGameResults}) => {
         <div>
             I'm the GameBoardComponent
             <form onSubmit={handleSubmit}>
-                <button id='columnOne' for='columnOne' value='1' onClick={handleOnClick}>1</button>
-                <button id='columnTwo' for='columnTwo' value='2' onClick={handleOnClick}>2</button>
-                <button id='columnThree' for='columnThree' value='3' onClick={handleOnClick}>3</button>
-                <button id='columnFour' for='columnFour' value='4' onClick={handleOnClick}>4</button>
-                <button id='columnFive' for='columnFive' value='5' onClick={handleOnClick}>5</button>
-                <button id='columnSix' for='columnSix' value='6' onClick={handleOnClick}>6</button>
-                <button id='columnSeven' for='columnSeven' value='7' onClick={handleOnClick}>7</button>
-                <input type='submit' name='winner' for='winner' value = 'Win'/>
+                <button id='columnOne' htmlFor='columnOne' value='1' onClick={handleOnClick}>1</button>
+                <button id='columnTwo' htmlFor='columnTwo' value='2' onClick={handleOnClick}>2</button>
+                <button id='columnThree' htmlFor='columnThree' value='3' onClick={handleOnClick}>3</button>
+                <button id='columnFour' htmlFor='columnFour' value='4' onClick={handleOnClick}>4</button>
+                <button id='columnFive' htmlFor='columnFive' value='5' onClick={handleOnClick}>5</button>
+                <button id='columnSix' htmlFor='columnSix' value='6' onClick={handleOnClick}>6</button>
+                <button id='columnSeven' htmlFor='columnSeven' value='7' onClick={handleOnClick}>7</button>
+                <input type='submit' name='winner' htmlFor='winner' value = 'Win'/>
             </form>
-            {/* {gameBoard} */}
         </div>
     )
 
