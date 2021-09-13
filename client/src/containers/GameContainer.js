@@ -14,7 +14,7 @@ import Game from '../models/Game'
 const GameContainer = () => {
 
     const game = new Game();
-    const board = game.newBoard()
+    game.newBoard()
 
     const [games, setGames] = useState([])
 
@@ -35,8 +35,8 @@ const GameContainer = () => {
         <HeaderComponent/>
         <h1>I am the screen container</h1>
         <BoardComponent game={game}/>
-        <GameBoardComponent endGameResults={endGameResults}/>
-        <ScoreComponent games = {games}/>
+        {/* <GameBoardComponent endGameResults={endGameResults}/> */}
+        {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>
         </>
     )
