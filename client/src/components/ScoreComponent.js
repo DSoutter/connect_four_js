@@ -1,4 +1,5 @@
 import React from 'react';
+import ChartComponent from './ChartComponent';
 
 const ScoreComponent = ({games}) => {
 
@@ -25,6 +26,7 @@ const ScoreComponent = ({games}) => {
             <h3>I'm the Score Component</h3>
             <p>Player 1 has won: {playerOne} games</p>
             <p>Player 2 has won: {playerTwo} games</p>
+            <ChartComponent playerOne={playerOne} playerTwo={playerTwo}/>
         </>
     )
 
