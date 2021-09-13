@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Game.css'
-import Cell from './Cell'
+import Cell from './_Cell'
 
 const Game = () => {
 

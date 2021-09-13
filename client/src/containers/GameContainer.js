@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import GameBoardComponent from '../components/GameBoardComponent';
+import GameBoardComponent from '../components/_GameBoardComponent';
 import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
 import GamesService from '../services/GameServices';
