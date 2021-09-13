@@ -4,6 +4,7 @@ h3{
 
 .grid{
     border: 5px solid black;
+    border-radius: 1.5rem;
     height: 80vh;
     width: 80vh;
     background-color: rgb(52, 134, 228);

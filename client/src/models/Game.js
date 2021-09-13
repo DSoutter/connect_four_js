@@ -11,10 +11,10 @@ class Game {
     checkWin() {
         //some logic that checks if the game has been won
         for (let i = 0; i < winningArrays.length; i++) {
-            const cell1 = board[winningArrays[i][0]]
-            const cell2 = board[winningArrays[i][1]]
-            const cell3 = board[winningArrays[i][2]]
-            const cell4 = board[winningArrays[i][3]]
+            const cell1 = this.board[winningArrays[i][0]]
+            const cell2 = this.board[winningArrays[i][1]]
+            const cell3 = this.board[winningArrays[i][2]]
+            const cell4 = this.board[winningArrays[i][3]]
 
             // // check those squares to see if they all have the class of player-one
             if (cell1.player === 'player-1' &&
