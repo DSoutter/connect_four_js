@@ -8,7 +8,7 @@ import GamesService from '../services/GameServices'
 
 const ScreenContainer = () => {
 
-    const [games, setGames] = useState([{winner : 0}])
+    const [games, setGames] = useState([])
 
     useEffect(() => {
         GamesService.getGames()

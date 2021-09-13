@@ -2,7 +2,7 @@ import React from 'react';
 
 const ScoreComponent = ({games}) => {
 
-    console.log("hi", games.length)
+    console.log("This should display only once", games.length)
     let playerOne = 0
     let playerTwo = 0
 
@@ -23,8 +23,8 @@ const ScoreComponent = ({games}) => {
     return (
         <>
             <h3>I'm the Score Component</h3>
-            <p>Player 1 has won: {playerOne}</p>
-            <p>Player 2 has won: {playerTwo} </p>
+            <p>Player 1 has won: {playerOne} games</p>
+            <p>Player 2 has won: {playerTwo} games</p>
         </>
     )
 
