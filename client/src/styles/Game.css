@@ -1,0 +1,45 @@
+h3{
+    text-align: center;
+}
+
+.grid{
+    border: 1px solid black;
+    height: 420px;
+    width: 490px;
+    background-color: rgb(52, 134, 228);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.grid div{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.cell{
+    border: 5px solid rgb(52, 134, 228);
+    background-color: white;
+    outline: 5px solid rgb(52, 134, 228);
+}
+
+/* add logic so only hover if not taken */
+.cell:hover{
+    background-color: rgba(170, 168, 172, 0.876);
+}
+
+.bottom-row{
+    margin: .311rem;
+}
+
+.player-one {
+    background-color: red;
+    border-radius: 10px;
+}
+
+.player-two {
+    background-color: yellow;
+    border-radius: 10px;
+}
