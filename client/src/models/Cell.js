@@ -1,7 +1,7 @@
 class Cell {
     constructor(id, player = null, winning = false) {
-        this.id = id,
-        this.player = player,       
+        this.id = id
+        this.player = player       
         this.winning = winning
     }
 
@@ -19,3 +19,5 @@ class Cell {
         //do something to the cells that make up the winning connect 4
     }
 }
+
+export default Cell

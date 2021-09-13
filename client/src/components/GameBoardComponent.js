@@ -63,6 +63,7 @@ const GameBoardComponent = ({endGameResults}) => {
     return (
         <div>
             I'm the GameBoardComponent
+            {gameBoard}
             <form onSubmit={handleSubmit}>
                 <button id='columnOne' htmlFor='columnOne' value='1' onClick={handleOnClick}>1</button>
                 <button id='columnTwo' htmlFor='columnTwo' value='2' onClick={handleOnClick}>2</button>
