@@ -1,12 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import GameBoardComponent from '../components/GameBoardComponent';
+import GameBoardComponent from '../components/_GameBoardComponent';
 import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
-import GamesService from '../services/GameServices'
+import GamesService from '../services/GameServices';
+import BoardComponent from '../components/BoardComponent';
+
+import Game from '../models/Game'
 
 
-const ScreenContainer = () => {
+
+
+const GameContainer = () => {
+
+    const game = new Game();
+    game.newBoard()
 
     const [games, setGames] = useState([])
 
@@ -26,12 +34,13 @@ const ScreenContainer = () => {
         <>
         <HeaderComponent/>
         <h1>I am the screen container</h1>
-        <GameBoardComponent endGameResults={endGameResults}/>
-        <ScoreComponent games = {games}/>
+        <BoardComponent game={game}/>
+        {/* <GameBoardComponent endGameResults={endGameResults}/> */}
+        {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>
         </>
     )
 
 }
 
-export default ScreenContainer
+export default GameContainer

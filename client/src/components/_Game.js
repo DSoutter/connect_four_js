@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Game.css'
-import Cell from './Cell'
+import Cell from './_Cell'
 
 const Game = () => {
 
@@ -136,7 +136,7 @@ const Game = () => {
 
     function reset() {
         // creates an array 0 - 41, for cell id's in renderCells
-        const cellIndex = [...Array(42).keys()]
+        const cellIndex = [...Array(49).keys()]
         // render cells
         const renderCells = cellIndex.map((id, index) => {
             return  <Cell className="cell" id={id} key={index} handleChoice={handleChoice}/>    
@@ -178,6 +178,7 @@ const Game = () => {
     }
 
     const handleChoice = function(cell){  
+        console.log(cell.id);
         if (cell.id > 34 && !cell.classList.contains('taken')){   
             if (currentPLayer == 1 ) {
                 moves[cell.id].player = 'player-one'
@@ -202,7 +203,7 @@ const Game = () => {
                 cell.classList.add('player-two')
                 currentPLayer = 1
             }
-        } else alert('Cant go there');
+         } else alert('Cant go there');
         checkBoard()
         // console.log(moves);              //Todo Remove
     }
@@ -212,8 +213,11 @@ const Game = () => {
         <>
             <h3>The current player is : Player { currentPLayer }</h3>
             <h3 className="result"></h3>
+            
+            {/* <button>drop!</button> */}
 
             <div className="grid">
+
                 {reset()}
             </div>
             

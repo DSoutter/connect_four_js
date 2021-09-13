@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Game from './Game';
 
 const GameBoardComponent = ({endGameResults}) => {
 
@@ -73,7 +72,7 @@ const GameBoardComponent = ({endGameResults}) => {
                 <button id='columnSeven' htmlFor='columnSeven' value='7' onClick={handleOnClick}>7</button>
                 <input type='submit' name='winner' htmlFor='winner' value = 'Win'/>
             </form>
-            <Game/>
+            {gameBoard}
         </div>
     )
 
