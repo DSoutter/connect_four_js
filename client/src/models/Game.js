@@ -10,32 +10,32 @@ class Game {
 
     checkWin() {
         //some logic that checks if the game has been won
-        for (let i = 0; i < winningArrays.length; i++) {
-            const cell1 = board[winningArrays[i][0]]
-            const cell2 = board[winningArrays[i][1]]
-            const cell3 = board[winningArrays[i][2]]
-            const cell4 = board[winningArrays[i][3]]
+        // for (let i = 0; i < winningArrays.length; i++) {
+        //     const cell1 = board[winningArrays[i][0]]
+        //     const cell2 = board[winningArrays[i][1]]
+        //     const cell3 = board[winningArrays[i][2]]
+        //     const cell4 = board[winningArrays[i][3]]
 
-            // // check those squares to see if they all have the class of player-one
-            if (cell1.player === 'player-1' &&
-                cell2.player === 'player-1' &&
-                cell3.player === 'player-1' &&
-                cell4.player === 'player-1'
-            ){
-                // add winner useState to stop game?
-                console.log("Player One Wins!");
-            }
-            // // check those squares to see if they all have the class of player-two
-            if (cell1.player === 'player-2' &&
-                cell2.player === 'player-2' &&
-                cell3.player === 'player-2' &&
-                cell4.player === 'player-2'
-            ){
-                // add winner useState to stop game?
-                console.log("Player Two Wins!");
-            }
+        //     // // check those squares to see if they all have the class of player-one
+        //     if (cell1.player === 'player-1' &&
+        //         cell2.player === 'player-1' &&
+        //         cell3.player === 'player-1' &&
+        //         cell4.player === 'player-1'
+        //     ){
+        //         // add winner useState to stop game?
+        //         console.log("Player One Wins!");
+        //     }
+        //     // // check those squares to see if they all have the class of player-two
+        //     if (cell1.player === 'player-2' &&
+        //         cell2.player === 'player-2' &&
+        //         cell3.player === 'player-2' &&
+        //         cell4.player === 'player-2'
+        //     ){
+        //         // add winner useState to stop game?
+        //         console.log("Player Two Wins!");
+        //     }
 
-        }
+        // }
     }
 
     claimCell(id) {
