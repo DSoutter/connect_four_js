@@ -15,6 +15,7 @@ const GameContainer = () => {
 
     const [games, setGames] = useState([])
     const [game, setGame] = useState(null)
+    const [board, setBoard] = useState(null)
 
     useEffect(() => {
         GamesService.getGames()
@@ -23,6 +24,12 @@ const GameContainer = () => {
         game.newBoard()
         setGame(game)
     }, []) 
+
+    useEffect(() => {
+        if (game) {
+            setBoard([...game.board])
+        }
+    }, [game])
 
     const endGameResults = finishedGame => {
         GamesService.postGame(finishedGame)
@@ -58,6 +65,7 @@ const GameContainer = () => {
         const id = parseInt(event.target.id)
 
         game.chooseColumn(id)
+        setGame(game)
 
         // for (let i=id; i<48; i+=7) {
         //     if (event.target.nextElementSibling.childNodes[`${i}`].attributes['0'].nodeValue.trim() !== 'cell') {
@@ -72,7 +80,7 @@ const GameContainer = () => {
         // }
         }
 
-    const boardNode = (game) ? <BoardComponent game={game} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
+    const boardNode = (board) ? <BoardComponent board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
 
     return (
         <>

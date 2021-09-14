@@ -24,8 +24,8 @@ class Game {
             } else {
                 console.log("error else");
             }
-            }
         }
+    }
 
     checkWin() {
         //some logic that checks if the game has been won
