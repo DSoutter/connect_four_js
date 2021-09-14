@@ -31,8 +31,12 @@ const GameContainer = () => {
     }
 
     const handleClick = (event) => {
-        const cellId = event.target.innerText;
-        game.takeTurn(parseInt(cellId))
+        console.log(event.target);
+        const cellId = parseInt(event.target.innerText);
+        if (!game.board[cellId].player){
+            game.takeTurn(cellId)
+            event.target.classList.add(`${game.board[cellId].player}`)
+        }
     }
 
     return (
