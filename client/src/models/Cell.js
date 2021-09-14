@@ -7,7 +7,8 @@ class Cell {
 
     claim(player) {
         //set the cell to the players colour
-        this.player = player
+        console.log(`claim cell function running, player is ${player}`);
+        this.player = `player-${player}`
     }
 
     setWin() {

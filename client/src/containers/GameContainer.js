@@ -30,11 +30,27 @@ const GameContainer = () => {
         console.log(games)
     }
 
+    const handleClick = (event) => {
+        console.log(event.target);
+
+        const cellId = parseInt(event.target.innerText);
+        if (cellId > 41 && !game.board[cellId].player) {
+            game.takeTurn(cellId)
+            event.target.classList.add(`${game.board[cellId].player}`)
+        }
+        else if (!game.board[cellId].player && game.board[cellId+7].player){
+            game.takeTurn(cellId)
+            event.target.classList.add(`${game.board[cellId].player}`)
+        } else {
+            console.log('move not allowed');
+        }
+    }
+
     return (
         <>
         <HeaderComponent/>
         <h1>I am the screen container</h1>
-        <BoardComponent game={game}/>
+        <BoardComponent game={game} handleClick={handleClick}/>
         {/* <GameBoardComponent endGameResults={endGameResults}/> */}
         {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>
