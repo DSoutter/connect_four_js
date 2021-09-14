@@ -46,9 +46,14 @@ const GameContainer = () => {
         }
     }
 
+    const handleResetClick = () => {
+        game.newBoard();
+        window.location.reload()
+    }
+
     return (
         <>
-        <HeaderComponent/>
+        <HeaderComponent handleResetClick={handleResetClick}/>
         <h1>I am the screen container</h1>
         <BoardComponent game={game} handleClick={handleClick}/>
         {/* <GameBoardComponent endGameResults={endGameResults}/> */}

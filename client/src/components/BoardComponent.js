@@ -7,9 +7,13 @@ const BoardComponent = ({game, handleClick}) => {
     })
 
     return (
-        <div className='grid'>
-            {renderCells}
-        </div>
+        <>
+            <div className='grid' onClick= {(event) =>{
+                console.log(event.target)
+            } }>
+                {renderCells}
+            </div>
+        </>
     )
 }
 
