@@ -9,6 +9,10 @@ const BoardComponent = ({game, handleClick, handleSelectClick}) => {
     return (
         <>
             <button id="0" onClick ={handleSelectClick}>Column 1</button>
+            {/* <button id="1" onClick ={handleSelectClick}>Column 2</button> */}
+            {/* <button id="2" onClick ={handleSelectClick}>Column 3</button> */}
+
+
             
             <div className='grid' onClick= {(event) => {
                 console.log(event.target)

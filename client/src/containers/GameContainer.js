@@ -13,15 +13,15 @@ import Game from '../models/Game'
 
 const GameContainer = () => {
 
-    const game = new Game();
-    game.newBoard()
-
     const [games, setGames] = useState([])
+    const [game, setGame] = useState(null)
 
     useEffect(() => {
         GamesService.getGames()
         .then(games=> setGames(games))
-        // console.log(games[0])
+        const game = new Game()
+        game.newBoard()
+        setGame(game)
     }, []) 
 
     const endGameResults = finishedGame => {
@@ -36,11 +36,11 @@ const GameContainer = () => {
         const cellId = parseInt(event.target.innerText);
         if (cellId > 41 && !game.board[cellId].player) {
             game.takeTurn(cellId)
-            event.target.classList.add(`${game.board[cellId].player}`)
+           setGame(game)
         }
         else if (!game.board[cellId].player && game.board[cellId+7].player){
             game.takeTurn(cellId)
-            event.target.classList.add(`${game.board[cellId+7].player}`)
+            setGame(game)
         } else {
             console.log('move not allowed');
         }
@@ -48,27 +48,37 @@ const GameContainer = () => {
 
     const handleResetClick = () => {
         game.newBoard();
-        window.location.reload()
+        setGame(game)
     }
 
     const handleSelectClick = (event) => {
 
         const selectedCell = event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue.trim()
-
-        console.log(event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue)
         
-        if (selectedCell == 'cell') {
-            console.log("yay")
+        const id = parseInt(event.target.id)
+
+        game.chooseColumn(id)
+
+        // for (let i=id; i<48; i+=7) {
+        //     if (event.target.nextElementSibling.childNodes[`${i}`].attributes['0'].nodeValue.trim() !== 'cell') {
+        //         event.target.nextElementSibling.childNodes[`${i - 7}`].attributes['0'].nodeValue = `cell ${game.currentPlayer}`
+
+        //         game.takeTurn(i-7)
+        //     } else if (i+42 < 49) {  
+        //         event.target.nextElementSibling.childNodes[`${i+42}`].attributes['0'].nodeValue = "cell player-1"
+
+        //         game.takeTurn(i+42)
+        //     }
+        // }
         }
-        
 
-    }
+    const boardNode = (game) ? <BoardComponent game={game} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
 
     return (
         <>
         <HeaderComponent handleResetClick={handleResetClick}/>
         <h1>I am the screen container</h1>
-        <BoardComponent game={game} handleClick={handleClick} handleSelectClick={handleSelectClick}/>
+        {boardNode}
         {/* <GameBoardComponent endGameResults={endGameResults}/> */}
         {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>

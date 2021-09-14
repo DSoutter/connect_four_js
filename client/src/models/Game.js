@@ -8,6 +8,25 @@ class Game {
         this.currentPlayer = players[0]
     }
 
+    chooseColumn(column) {
+        // TODO: logic for using column number to determine which id should be claimed
+        // work out which cell id should be claimed in column
+        // claim the cell
+        // in react once this has been called update the state and it should rerender `setGame(game)`
+        for (let i=column+42; i>=0; i-=7) {
+            console.log(this.board[i].player);
+            if (!this.board[i].player) {
+                this.board[i].player = this.currentPlayer
+                console.log(this.currentPlayer);
+                console.log(this.board[i].player, i);
+                this.takeTurn(i);
+                break
+            } else {
+                console.log("error else");
+            }
+            }
+        }
+
     checkWin() {
         //some logic that checks if the game has been won
         for (let i = 0; i < winningArrays.length; i++) {
