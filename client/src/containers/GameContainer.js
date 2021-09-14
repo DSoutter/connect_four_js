@@ -38,6 +38,7 @@ const GameContainer = () => {
         <BoardComponent game={game}/>
         <GameBoardComponent/>
         <FooterComponent/>
+        <audio src="../sound/imperial_march.mp3"></audio>
         </>
     )
 
