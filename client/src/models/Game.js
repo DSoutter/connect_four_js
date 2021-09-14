@@ -36,6 +36,10 @@ class Game {
             }
 
         }
+
+        //some kind of win screen...
+
+        
     }
 
     claimCell(id) {

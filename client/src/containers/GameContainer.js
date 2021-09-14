@@ -32,10 +32,17 @@ const GameContainer = () => {
 
     const handleClick = (event) => {
         console.log(event.target);
+
         const cellId = parseInt(event.target.innerText);
-        if (!game.board[cellId].player){
+        if (cellId > 41 && !game.board[cellId].player) {
             game.takeTurn(cellId)
             event.target.classList.add(`${game.board[cellId].player}`)
+        }
+        else if (!game.board[cellId].player && game.board[cellId+7].player){
+            game.takeTurn(cellId)
+            event.target.classList.add(`${game.board[cellId].player}`)
+        } else {
+            console.log('move not allowed');
         }
     }
 

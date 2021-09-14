@@ -2,6 +2,11 @@ h3{
     text-align: center;
 }
 
+/* add logic so only hover if not taken */
+/* .cell:hover{
+    background-color: rgba(170, 168, 172, 0.55);
+} */
+
 .grid{
     border: 5px solid black;
     height: 80vh;
@@ -33,10 +38,7 @@ h3{
     cursor: pointer;
 }
 
-/* add logic so only hover if not taken */
-.cell:hover{
-    background-color: rgba(170, 168, 172, 0.876);
-}
+
 
 .bottom-row{
     margin: .311rem;
