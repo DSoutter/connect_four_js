@@ -5,6 +5,8 @@ import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
 import GamesService from '../services/GameServices';
 import BoardComponent from '../components/BoardComponent';
+//we think we can call boardmaker (from the api component) here?
+import ApiComponent from '../components/ApiComponent';
 
 import Game from '../models/Game'
 
@@ -44,6 +46,14 @@ const GameContainer = () => {
         } else {
             console.log('move not allowed');
         }
+
+        const boardMaker = game.board.map(cell => {
+            if (!cell.player) { return 0} 
+            else {return parseInt(cell.player.slice(-1))}
+        })
+
+        console.log(boardMaker);
+
     }
 
     return (

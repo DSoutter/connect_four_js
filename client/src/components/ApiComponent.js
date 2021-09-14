@@ -55,12 +55,11 @@ const ApiComponent = () => {
         else {return cell.player}
     })
     
-        console.log(boardMaker);
 
         return (
             <>
             {/* we want to display the max index 1 (value) of the seven arrays */}
-            <p> Here's the board: {game.board[1].player}</p>
+            {/* <p> Here's the board: {game.board[1].player}</p> */}
             <p>The best move is column {(computerMoves)}</p>
             </>
         )
