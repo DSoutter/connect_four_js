@@ -1,9 +1,9 @@
 import Game from '../models/Game';
 import CellComponent from './CellComponent';
 
-const BoardComponent = ({game}) => {
+const BoardComponent = ({game, handleClick}) => {
     const renderCells = game.board.map((cell) => {
-        return <CellComponent cell={cell} key={cell.id}/>
+        return <CellComponent cell={cell} id={cell.id} key={cell.id} handleClick={handleClick}/>
     })
 
     return (

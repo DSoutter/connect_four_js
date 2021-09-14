@@ -30,11 +30,16 @@ const GameContainer = () => {
         console.log(games)
     }
 
+    const handleClick = (event) => {
+        const cellId = event.target.innerText;
+        game.takeTurn(parseInt(cellId))
+    }
+
     return (
         <>
         <HeaderComponent/>
         <h1>I am the screen container</h1>
-        <BoardComponent game={game}/>
+        <BoardComponent game={game} handleClick={handleClick}/>
         {/* <GameBoardComponent endGameResults={endGameResults}/> */}
         {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>

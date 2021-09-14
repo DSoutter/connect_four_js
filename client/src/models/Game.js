@@ -54,6 +54,7 @@ class Game {
 
     takeTurn(id) {
         //call all the above functions
+        console.log(`running taketurn with id ${id}, current player is ${this.currentPlayer}`);
         this.claimCell(id)
         this.checkWin()
         this.changeCurrentPlayer()
