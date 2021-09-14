@@ -3,13 +3,13 @@ import React, {useEffect, useState} from "react";
 
 const ApiComponent = () => {
 
-    const [computerMove, setComputerMove] = useState(null)
+    const [computerMoves, setComputerMoves] = useState(null)
 
     const apiResponse = function () {
         fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=0000000000000000020000001200000210000021001012100&player=2`)
         .then(res => res.json())
-        .then(move => setComputerMove(Object.entries(move)));
-        console.log("This should be the computerMove", computerMove);
+        .then(moves => setComputerMoves(Object.entries(moves)));
+        console.log("This should be the computerMoves", computerMoves);
     }
 
     useEffect(() => 
@@ -17,19 +17,25 @@ const ApiComponent = () => {
         apiResponse()}
         ,[])
 
-    if (!computerMove) {
+    if (!computerMoves) {
         return <p>Loading...</p>
     }
 
 
 
-    // const apiArray = move.map
+    // find the highest value in the array of 7...
+    const bestMove = (computerMoves) => {
+        let currentBest = 1+ parseInt(computerMoves[0][0])
+        console.log(currentBest)
+        return currentBest
+    }
     
+    bestMove(computerMoves)
 
     return (
         <>
         {/* we want to display the max index 1 (value) of the seven arrays */}
-        <p>The best move is </p>
+        <p>The best move is column {bestMove(computerMoves)}</p>
         </>
     )
 }
