@@ -52,10 +52,16 @@ const GameContainer = () => {
     }
 
     const handleSelectClick = (event) => {
+
+        const selectedCell = event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue.trim()
+
         console.log(event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue)
-        // if (event.target.attributes.nodeValue){
-        //     event.target.attributes.nodeValue + 7
-        // }
+        
+        if (selectedCell == 'cell') {
+            console.log("yay")
+        }
+        
+
     }
 
     return (
