@@ -40,7 +40,7 @@ const GameContainer = () => {
         }
         else if (!game.board[cellId].player && game.board[cellId+7].player){
             game.takeTurn(cellId)
-            event.target.classList.add(`${game.board[cellId].player}`)
+            event.target.classList.add(`${game.board[cellId+7].player}`)
         } else {
             console.log('move not allowed');
         }
@@ -51,11 +51,18 @@ const GameContainer = () => {
         window.location.reload()
     }
 
+    const handleSelectClick = (event) => {
+        console.log(event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue)
+        // if (event.target.attributes.nodeValue){
+        //     event.target.attributes.nodeValue + 7
+        // }
+    }
+
     return (
         <>
         <HeaderComponent handleResetClick={handleResetClick}/>
         <h1>I am the screen container</h1>
-        <BoardComponent game={game} handleClick={handleClick}/>
+        <BoardComponent game={game} handleClick={handleClick} handleSelectClick={handleSelectClick}/>
         {/* <GameBoardComponent endGameResults={endGameResults}/> */}
         {/* <ScoreComponent games = {games}/> */}
         <FooterComponent/>
