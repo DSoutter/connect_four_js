@@ -72,7 +72,7 @@ class Game {
             const cell = new Cell(i);
             this.board.push(cell)
         }
-        console.log(this.board);
+        // console.log(this.board);
     }
 }
 
