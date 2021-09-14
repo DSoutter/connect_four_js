@@ -33,10 +33,10 @@ const GameContainer = () => {
     return (
         <>
         <HeaderComponent/>
+        <ScoreComponent games = {games}/>
         <h1>I am the screen container</h1>
         <BoardComponent game={game}/>
         <GameBoardComponent/>
-        <ScoreComponent games = {games}/>
         <FooterComponent/>
         </>
     )

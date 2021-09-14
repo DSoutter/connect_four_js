@@ -9,6 +9,9 @@ h3{
     width: 80vh;
     /* background-color: rgb(52, 134, 228); */
     background-image: url("../images/metal.jpg");
+    background-size: cover;
+    background-position: center;
+
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
@@ -18,7 +21,6 @@ h3{
     gap: 1.2rem;  /* change cell spacing*/
     padding: 1.2rem;
     box-sizing: border-box;
-
 }
 
 .grid div{
@@ -44,6 +46,7 @@ h3{
 /* add logic so only hover if not taken */
 .cell:hover{
     background-color: rgba(170, 168, 172, 0.876);
+    opacity: 0.8;
 }
 
 .bottom-row{
@@ -61,3 +64,4 @@ h3{
     /* background-image: url("../images/test.png"); */
     border-radius: 10px;
 }
+
