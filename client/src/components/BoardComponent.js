@@ -12,7 +12,8 @@ const BoardComponent = ({game, handleClick}) => {
         <div className='grid'>
             {renderCells}
         </div>
-            <ApiComponent/>
+            <ApiComponent game={game}/>
+            
         </>
     )
 }

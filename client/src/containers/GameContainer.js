@@ -52,7 +52,7 @@ const GameContainer = () => {
             else {return parseInt(cell.player.slice(-1))}
         })
 
-        console.log(boardMaker);
+        // console.log(boardMaker());
 
     }
 

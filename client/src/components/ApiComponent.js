@@ -2,18 +2,19 @@ import React, {useEffect, useState} from "react";
 import Game from '../models/Game'
 
 
-const ApiComponent = () => {
+const ApiComponent = ({game}) => {
 
     const [computerMoves, setComputerMoves] = useState([])
     const [moveList, setMoveList] = useState([])
 
 
-    const game = new Game
-    game.newBoard()
+    
     console.log(`heres the game board length: ${game.board.length}`);
 
     const apiResponse = function () {
-        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=0000000000000000020000001200000210000021001012100&player=2`)
+        let currentBoard = game.boardMaker().join("")
+
+        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=${currentBoard}&player=2`)
         .then(res => res.json())
         .then(moves => setComputerMoves(Object.values(moves)));
         // console.log("This should be the computerMoves", computerMoves);
@@ -60,7 +61,9 @@ const ApiComponent = () => {
             <>
             {/* we want to display the max index 1 (value) of the seven arrays */}
             {/* <p> Here's the board: {game.board[1].player}</p> */}
+            <button onClick={apiResponse}>Want a hint?</button>
             <p>The best move is column {(computerMoves)}</p>
+
             </>
         )
     }}

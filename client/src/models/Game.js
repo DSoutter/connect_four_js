@@ -64,7 +64,13 @@ class Game {
         this.changeCurrentPlayer()
     }
 
-
+    boardMaker() {
+        const boardArray = this.board.map(cell => {
+            if (!cell.player) { return 0} 
+            else {return parseInt(cell.player.slice(-1))}
+        })
+        return boardArray
+    }
 
     newBoard() {
         this.board = []
