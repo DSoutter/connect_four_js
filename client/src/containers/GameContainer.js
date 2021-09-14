@@ -35,8 +35,8 @@ const GameContainer = () => {
         <HeaderComponent/>
         <h1>I am the screen container</h1>
         <BoardComponent game={game}/>
-        {/* <GameBoardComponent endGameResults={endGameResults}/> */}
-        {/* <ScoreComponent games = {games}/> */}
+        <GameBoardComponent/>
+        <ScoreComponent games = {games}/>
         <FooterComponent/>
         </>
     )

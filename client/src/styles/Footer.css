@@ -3,8 +3,9 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(47, 188, 190);
-    color: white;
+    background-color: yellow;
+    color: black;
     text-align: center;
+    font-family: 'PT Sans', sans-serif;
 
 }

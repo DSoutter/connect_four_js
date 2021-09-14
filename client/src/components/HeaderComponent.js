@@ -6,8 +6,8 @@ const HeaderComponent = () => {
 
 
     return (
-        <div className="header">
-            I'm the Header
+        <div className="header" >
+            STAR WARS Connect-4
         </div>
     )
 
