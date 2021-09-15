@@ -3,14 +3,32 @@ import Game from '../models/Game'
 import '../styles/Game.css'
 import '../styles/OtherComponent.css'
 
+function compareFn (firstEl, secondEl) {
+    if (firstEl[1] > secondEl[1]) {
+        return -1
+    } if (firstEl[1] < secondEl[1]) {
+        return 1
+    } else {
+        return 0
+    }
+}
+
 const ApiComponent = ({game, handleHintUpdate}) => {
 
-    const [computerMoves, setComputerMoves] = useState([])
+    const [computerMoves, setComputerMoves] = useState(null)
     const [moveList, setMoveList] = useState([])
+    // const [bestMove, setBestMove] = useState(null)
 
-
-    
-    // console.log(`heres the game board length: ${game.board.length}`);
+    useEffect(() => {
+        if (computerMoves) {
+            const thisArray = Object.entries(computerMoves).sort(compareFn)
+            console.log(thisArray)
+            console.log(thisArray[0]);
+            const bestColumn = thisArray[0][0];
+            handleHintUpdate(parseInt(bestColumn))
+            setComputerMoves(null)
+        }
+    }, [computerMoves])
 
     const apiResponse = function () {
         let currentBoard = game.boardMaker().join("")
@@ -29,18 +47,8 @@ const ApiComponent = ({game, handleHintUpdate}) => {
     const handleApiClick = function () {
         apiResponse()
     }
-
-
-    // console.log(computerMoves)}
-
-    // find the highest value in the array of 7...
-    const bestMove = (computerMoves) => {
-        let currentBest = (computerMoves[0])
-        if (computerMoves.length >0) {
-        return currentBest
-    }}
     
-    if (computerMoves.length === 0) {
+    if (!computerMoves) {
         return (
         <button className='hintButton' onClick={handleApiClick}>Use the Force</button>)
     } else { 
@@ -50,21 +58,8 @@ const ApiComponent = ({game, handleHintUpdate}) => {
         else {return cell.player}
     })
     
-    function compareFn (firstEl, secondEl) {
-        if (firstEl[1] > secondEl[1]) {
-            return -1
-        } if (firstEl[1] < secondEl[1]) {
-            return 1
-        } else {
-            return 0
-        }
-    }
 
-    const thisArray = Object.entries(computerMoves).sort(compareFn)
-    console.log(thisArray)
-    console.log(thisArray[0]);
-    const bestColumn = thisArray[0][0];
-    handleHintUpdate(bestColumn)
+
     // const secondBest = thisArray[1][0]
     
 

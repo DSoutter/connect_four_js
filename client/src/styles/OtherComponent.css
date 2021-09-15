@@ -53,3 +53,8 @@
     border-radius: 100%;
     box-shadow: gold 0 0 6px 2px;
 }
+
+#game-container {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+}
