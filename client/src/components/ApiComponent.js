@@ -17,7 +17,7 @@ const ApiComponent = ({game}) => {
         fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=${currentBoard}&player=2`)
         .then(res => res.json())
         .then(moves => setComputerMoves(Object.values(moves)));
-        // console.log("This should be the computerMoves", computerMoves);
+        
     }
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const ApiComponent = ({game}) => {
             {/* we want to display the max index 1 (value) of the seven arrays */}
             {/* <p> Here's the board: {game.board[1].player}</p> */}
             <button onClick={apiResponse}>Want a hint?</button>
-            <p>The best move is column {(computerMoves)}</p>
+            <p>The column's relative strengths are: {(computerMoves)}</p>
 
             </>
         )
