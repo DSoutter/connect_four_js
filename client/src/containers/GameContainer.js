@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import GameBoardComponent from '../components/_GameBoardComponent';
 import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
 import GamesService from '../services/GameServices';
@@ -57,7 +56,8 @@ const GameContainer = () => {
 
     const handleResetClick = () => {
         game.newBoard();
-        setGame(game)
+        let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+        setGame(updatedGame)
     }
 
     const handleSelectClick = (event) => {
