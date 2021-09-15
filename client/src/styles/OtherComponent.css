@@ -47,3 +47,9 @@
  background-color: yellow;
 
 }
+
+.highlight {
+    opacity: 1;
+    border-radius: 100%;
+    box-shadow: gold 0 0 6px 2px;
+}

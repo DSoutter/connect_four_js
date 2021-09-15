@@ -89,7 +89,7 @@ const GameContainer = () => {
         }
         }
 
-    const boardNode = (board) ? <BoardComponent game={game} board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
+    const boardNode = (board) ? <BoardComponent game={game} board={board} handleClick={handleClick} hintColumn={3} handleSelectClick={handleSelectClick}/> : null
 
     return (
         <>
