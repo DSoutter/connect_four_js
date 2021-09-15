@@ -44,6 +44,7 @@ h3{
 
     background-size: cover;
     background-position: center;
+    /* opacity: 0.7; */
 
     cursor: pointer;
 }
@@ -51,7 +52,7 @@ h3{
 /* add logic so only hover if not taken */
 .cell:hover{
     /* background-color: rgba(170, 168, 172, 0.876); */
-    opacity: 0.8;
+    
 }
 
 
@@ -61,13 +62,13 @@ h3{
 
 .player-1 {
     background-color: red;
-    /* background-image: url("../images/withBG/red.png"); */
+    background-image: url("../images/lightsabers/withBG/red2.png");
     border-radius: 10px;
 }
 
 .player-2 {
     background-color: yellow;
-    /* background-image: url("../images/test.png"); */
+    background-image: url("../images/lightsabers/withBG/Blue2.png");
     border-radius: 10px;
 }
 
