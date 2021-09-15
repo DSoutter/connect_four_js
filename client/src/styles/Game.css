@@ -10,8 +10,8 @@ h3{
 .grid{
     border: 5px solid black;
     border-radius: 1.5rem;
-    height: 80vh;
-    width: 80vh;
+    height: 70vh;
+    width: 70vh;
     /* background-color: rgb(52, 134, 228); */
     background-image: url("../images/metal.jpg");
     background-size: cover;
@@ -55,6 +55,9 @@ h3{
     
 }
 
+.small{
+    font-size: 0px;
+}
 
 .bottom-row{
     margin: .311rem;

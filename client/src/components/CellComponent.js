@@ -6,7 +6,7 @@ const CellComponent = ({player, winning, id, handleClick}) => {
     const playerClass = (player) ? `${player}` : ""
 
     return (
-        <div className={`cell ${playerClass}`} onClick={handleClick}> 
+        <div className={`small cell ${playerClass}`} onClick={handleClick}> 
             {id}
         </div>
     )
