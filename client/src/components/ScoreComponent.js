@@ -15,12 +15,6 @@ const ScoreComponent = ({games}) => {
             }
         }
     
-
-    // for (let step = 0; step < 5; step++) {
-    //     // Runs 5 times, with values of step 0 through 4.
-    //     console.log('Walking east one step');
-    //   }
-
     return (
         <>
             {/* <h3>I'm the Score Component</h3> */}

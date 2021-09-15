@@ -50,7 +50,6 @@ class Game {
                 console.log("Player One Wins!");
                 this.hasWon = true
                 console.log("Check win", this.hasWon);
-                this.createWinPayload()
             }
             // // check those squares to see if they all have the class of player-two
             if (cell1.player === 'player-2' &&
@@ -62,7 +61,6 @@ class Game {
                 console.log("Player Two Wins!");
                 this.hasWon = true
                 console.log("Check win", this.hasWon);
-                this.createWinPayload()
             }
         }
         //some kind of win screen...       
@@ -109,7 +107,7 @@ class Game {
         }
         const winningBoard = this.boardMaker()
         const payload = {finalBoard: winningBoard, winner: winningPlayer}
-        GamesService.postGame(payload)
+        return GamesService.postGame(payload)
     }
 
     newBoard() {

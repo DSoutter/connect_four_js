@@ -20,7 +20,7 @@ const GameContainer = () => {
 
     useEffect(() => {
         GamesService.getGames()
-        .then(games=> setGames(games))
+            .then(games=> setGames(games))
         const game = new Game()
         game.newBoard()
         setGame(game)
@@ -29,6 +29,13 @@ const GameContainer = () => {
     useEffect(() => {
         if (game) {
             setBoard([...game.board])
+            if (game.hasWon) {
+                console.log("SOMEONE HAS WON THE GAME")
+                game.createWinPayload().then(_ => {
+                    GamesService.getGames()
+                        .then(games=> setGames(games))
+                })
+            }
         }
     }, [game])
 
@@ -54,11 +61,11 @@ const GameContainer = () => {
             let updatedGame = new Game(game.players, game.board, game.currentPlayer, game.hasWon)
             setGame(updatedGame)
         } else {
-            console.log('move not allowed');
+            console.log("I mean something was here")
         }
 
     } else {
-        console.log('game is over bro');
+        
     }
 
         const boardMaker = game.board.map(cell => {
