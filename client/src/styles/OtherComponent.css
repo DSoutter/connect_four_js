@@ -1,0 +1,13 @@
+.score {
+    font-family: 'PT Sans', sans-serif;
+    color: black;
+    font-family: 'StarJedi';
+    text-align: center + 16 px;
+    opacity: 0.7;
+    padding: 4px; 
+}
+.score span {
+    background-color: yellow;
+    
+
+}

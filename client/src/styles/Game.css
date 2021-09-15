@@ -9,9 +9,14 @@ h3{
 
 .grid{
     border: 5px solid black;
+    border-radius: 1.5rem;
     height: 80vh;
     width: 80vh;
-    background-color: rgb(52, 134, 228);
+    /* background-color: rgb(52, 134, 228); */
+    background-image: url("../images/metal.jpg");
+    background-size: cover;
+    background-position: center;
+
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
@@ -21,23 +26,33 @@ h3{
     gap: 1.2rem;  /* change cell spacing*/
     padding: 1.2rem;
     box-sizing: border-box;
-
 }
 
 .grid div{
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    box-shadow: inset rgb(30 70 160) 3px 1px 10px, inset rgb(30 70 160) -3px -1px 10px;
+    box-shadow: inset rgb(64, 69, 74) 3px 1px 10px, inset rgb(64, 69, 74) -3px -1px 10px;
     
 }
 
 .cell{
-    border: 5px solid rgb(18, 90, 172);
-    background-color: white;
+    /* border: 5px solid rgb(64, 69, 74); */
+    background-color: black;
+    /* background-image: url("../images/lightsabers/withBG/Blue.png"); */
+    /* background-image: url("../images/lightsabers/WOBG/Blue2.png"); */
+
+    background-size: cover;
+    background-position: center;
+
     cursor: pointer;
 }
 
+/* add logic so only hover if not taken */
+.cell:hover{
+    /* background-color: rgba(170, 168, 172, 0.876); */
+    opacity: 0.8;
+}
 
 
 .bottom-row{
@@ -46,10 +61,13 @@ h3{
 
 .player-1 {
     background-color: red;
+    /* background-image: url("../images/withBG/red.png"); */
     border-radius: 10px;
 }
 
 .player-2 {
     background-color: yellow;
+    /* background-image: url("../images/test.png"); */
     border-radius: 10px;
 }
+
