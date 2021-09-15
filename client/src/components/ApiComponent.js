@@ -1,15 +1,23 @@
 import React, {useEffect, useState} from "react";
+import Game from '../models/Game'
 
 
-const ApiComponent = () => {
+const ApiComponent = ({game}) => {
 
     const [computerMoves, setComputerMoves] = useState([])
+    const [moveList, setMoveList] = useState([])
+
+
+    
+    console.log(`heres the game board length: ${game.board.length}`);
 
     const apiResponse = function () {
-        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=0000000000000000020000001200000210000021001012100&player=2`)
+        let currentBoard = game.boardMaker().join("")
+
+        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=${currentBoard}&player=2`)
         .then(res => res.json())
         .then(moves => setComputerMoves(Object.values(moves)));
-        console.log("This should be the computerMoves", computerMoves);
+        
     }
 
     useEffect(() => {
@@ -35,28 +43,30 @@ const ApiComponent = () => {
     // } else {
     //     return null
     // }
-        console.log(currentBest)
+        // console.log(currentBest)
         return currentBest
     }}
     
     if (computerMoves.length === 0) {
         return <p>Loading...</p>
     } else { 
+
+    const boardMaker = game.board.map(cell => {
+        if (!cell.player) { return 0} 
+        else {return cell.player}
+    })
     
-        console.log(bestMove(computerMoves));
 
         return (
             <>
             {/* we want to display the max index 1 (value) of the seven arrays */}
-            <p>The best move is column {(computerMoves)}</p>
+            {/* <p> Here's the board: {game.board[1].player}</p> */}
+            <button onClick={apiResponse}>Want a hint?</button>
+            <p>The column's relative strengths are: {(computerMoves)}</p>
+
             </>
         )
     }}
 
 export default ApiComponent
 
-// const getConversions = function() {
-//     fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${selectedCurrency[0]}.json`)
-//     .then(response => response.json())
-//     .then(conversion => setConversions(conversion[selectedCurrency[0]]))
-// }

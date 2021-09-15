@@ -4,6 +4,8 @@ import ScoreComponent from '../components/ScoreComponent';
 import FooterComponent from '../components/FooterComponent';
 import GamesService from '../services/GameServices';
 import BoardComponent from '../components/BoardComponent';
+//we think we can call boardmaker (from the api component) here?
+import ApiComponent from '../components/ApiComponent';
 
 import Game from '../models/Game'
 
@@ -43,7 +45,7 @@ const GameContainer = () => {
         if (cellId > 41 && !game.board[cellId].player) {
             game.takeTurn(cellId)
             let updatedGame = new Game(game.players, game.board, game.currentPlayer)
-           setGame(updatedGame)
+            setGame(updatedGame)
         }
         else if (!game.board[cellId].player && game.board[cellId+7].player){
             game.takeTurn(cellId)
@@ -52,6 +54,14 @@ const GameContainer = () => {
         } else {
             console.log('move not allowed');
         }
+
+        const boardMaker = game.board.map(cell => {
+            if (!cell.player) { return 0} 
+            else {return parseInt(cell.player.slice(-1))}
+        })
+
+        // console.log(boardMaker());
+
     }
 
     const handleResetClick = () => {
@@ -70,7 +80,7 @@ const GameContainer = () => {
     
         }
 
-    const boardNode = (board) ? <BoardComponent board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
+    const boardNode = (board) ? <BoardComponent game={game} board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
 
     return (
         <>
