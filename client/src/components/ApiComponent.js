@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Game from '../models/Game'
-
+import '../styles/Game.css'
 
 const ApiComponent = ({game}) => {
 
@@ -20,11 +20,13 @@ const ApiComponent = ({game}) => {
         
     }
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     apiResponse()
+    // }
+    //     ,[])
+    const handleApiClick = function () {
         apiResponse()
     }
-        ,[])
-
 
 
     // console.log(computerMoves)}
@@ -33,22 +35,12 @@ const ApiComponent = ({game}) => {
     const bestMove = (computerMoves) => {
         let currentBest = (computerMoves[0])
         if (computerMoves.length >0) {
-    //     for (let i=0; computerMoves.length; i++){
-    //         console.log(`this is run number ${i}`);
-    //         if (computerMoves[i] > currentBest) {
-    //             currentBest = computerMoves[i]
-    //         }
-    //     }
-    //     return currentBest
-    // } else {
-    //     return null
-    // }
-        // console.log(currentBest)
         return currentBest
     }}
     
     if (computerMoves.length === 0) {
-        return <p>Loading...</p>
+        return (
+        <button onClick={handleApiClick}>Want a hint?</button>)
     } else { 
 
     const boardMaker = game.board.map(cell => {
@@ -61,8 +53,9 @@ const ApiComponent = ({game}) => {
             <>
             {/* we want to display the max index 1 (value) of the seven arrays */}
             {/* <p> Here's the board: {game.board[1].player}</p> */}
-            <button onClick={apiResponse}>Want a hint?</button>
-            <p>The column's relative strengths are: {(computerMoves)}</p>
+            <button onClick={handleApiClick}>Want a hint?</button>
+            
+            <p id='hint'>The column's relative strengths are: {(computerMoves)}</p>
 
             </>
         )
