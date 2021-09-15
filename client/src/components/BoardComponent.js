@@ -2,8 +2,11 @@ import Game from '../models/Game';
 import CellComponent from './CellComponent';
 import '../styles/OtherComponent.css'
 import ApiComponent from './ApiComponent';
+import { useState } from 'react'
 
 const BoardComponent = ({game, board, handleClick, handleSelectClick}) => {
+    const [hintColumn, setHintColumn] = useState(null)
+
     const renderCells = board.map((cell) => {
         return <CellComponent player={cell.player} winning={cell.winning} id={cell.id} key={cell.id} handleClick={handleClick}/>
     })
@@ -27,7 +30,7 @@ const BoardComponent = ({game, board, handleClick, handleSelectClick}) => {
                 {renderCells}
 
             </div>
-            <ApiComponent game={game}/>
+            <ApiComponent game={game} handleHintUpdate={(newHint) => setHintColumn(newHint)} />
         </>
     )
 }

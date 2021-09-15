@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Game from '../models/Game'
 import '../styles/Game.css'
 
-const ApiComponent = ({game}) => {
+const ApiComponent = ({game, handleHintUpdate}) => {
 
     const [computerMoves, setComputerMoves] = useState([])
     const [moveList, setMoveList] = useState([])
@@ -63,6 +63,7 @@ const ApiComponent = ({game}) => {
     console.log(thisArray)
     console.log(thisArray[0]);
     const bestColumn = thisArray[0][0];
+    handleHintUpdate(bestColumn)
     // const secondBest = thisArray[1][0]
     
 
