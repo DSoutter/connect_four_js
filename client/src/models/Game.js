@@ -2,10 +2,10 @@ import winningArrays from './WinningArrays.js';
 import Cell from './Cell.js';
 
 class Game {
-    constructor(players = [1, 2], board = []) {
+    constructor(players = [1, 2], board = [], currentPlayer) {
         this.players = players
         this.board = board
-        this.currentPlayer = players[0]
+        this.currentPlayer = currentPlayer || players[0]
     }
 
     chooseColumn(column) {
@@ -16,7 +16,7 @@ class Game {
         for (let i=column+42; i>=0; i-=7) {
             console.log(this.board[i].player);
             if (!this.board[i].player) {
-                this.board[i].player = this.currentPlayer
+                this.board[i].player = `player-${this.currentPlayer}`
                 console.log(this.currentPlayer);
                 console.log(this.board[i].player, i);
                 this.takeTurn(i);

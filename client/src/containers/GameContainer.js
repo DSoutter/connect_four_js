@@ -43,11 +43,13 @@ const GameContainer = () => {
         const cellId = parseInt(event.target.innerText);
         if (cellId > 41 && !game.board[cellId].player) {
             game.takeTurn(cellId)
-           setGame(game)
+            let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+           setGame(updatedGame)
         }
         else if (!game.board[cellId].player && game.board[cellId+7].player){
             game.takeTurn(cellId)
-            setGame(game)
+            let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+            setGame(updatedGame)
         } else {
             console.log('move not allowed');
         }
@@ -59,25 +61,13 @@ const GameContainer = () => {
     }
 
     const handleSelectClick = (event) => {
-
-        const selectedCell = event.target.nextElementSibling.childNodes['45'].attributes['0'].nodeValue.trim()
         
         const id = parseInt(event.target.id)
 
         game.chooseColumn(id)
-        setGame(game)
-
-        // for (let i=id; i<48; i+=7) {
-        //     if (event.target.nextElementSibling.childNodes[`${i}`].attributes['0'].nodeValue.trim() !== 'cell') {
-        //         event.target.nextElementSibling.childNodes[`${i - 7}`].attributes['0'].nodeValue = `cell ${game.currentPlayer}`
-
-        //         game.takeTurn(i-7)
-        //     } else if (i+42 < 49) {  
-        //         event.target.nextElementSibling.childNodes[`${i+42}`].attributes['0'].nodeValue = "cell player-1"
-
-        //         game.takeTurn(i+42)
-        //     }
-        // }
+        let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+        setGame(updatedGame)
+    
         }
 
     const boardNode = (board) ? <BoardComponent board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null
