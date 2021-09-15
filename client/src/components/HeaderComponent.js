@@ -1,12 +1,14 @@
 import React from 'react';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({handleResetClick}) => {
+
 
 
 
     return (
         <div>
             I'm the Header
+            <button onClick={handleResetClick}>Reset</button>
         </div>
     )
 
