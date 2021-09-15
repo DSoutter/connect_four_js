@@ -39,21 +39,27 @@ const GameContainer = () => {
     }
 
     const handleClick = (event) => {
+
+        if (!game.hasWon) {
         console.log(event.target);
 
         const cellId = parseInt(event.target.innerText);
         if (cellId > 41 && !game.board[cellId].player) {
             game.takeTurn(cellId)
-            let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+            let updatedGame = new Game(game.players, game.board, game.currentPlayer, game.hasWon)
             setGame(updatedGame)
         }
         else if (!game.board[cellId].player && game.board[cellId+7].player){
             game.takeTurn(cellId)
-            let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+            let updatedGame = new Game(game.players, game.board, game.currentPlayer, game.hasWon)
             setGame(updatedGame)
         } else {
             console.log('move not allowed');
         }
+
+    } else {
+        console.log('game is over bro');
+    }
 
         const boardMaker = game.board.map(cell => {
             if (!cell.player) { return 0} 
@@ -72,12 +78,15 @@ const GameContainer = () => {
 
     const handleSelectClick = (event) => {
         
+        if (!game.hasWon) {
         const id = parseInt(event.target.id)
 
         game.chooseColumn(id)
         let updatedGame = new Game(game.players, game.board, game.currentPlayer)
         setGame(updatedGame)
-    
+        } else{
+            console.log('srs, its gg');
+        }
         }
 
     const boardNode = (board) ? <BoardComponent game={game} board={board} handleClick={handleClick} handleSelectClick={handleSelectClick}/> : null

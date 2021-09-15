@@ -2,10 +2,11 @@ import winningArrays from './WinningArrays.js';
 import Cell from './Cell.js';
 
 class Game {
-    constructor(players = [1, 2], board = [], currentPlayer) {
+    constructor(players = [1, 2], board = [], currentPlayer, hasWon = false) {
         this.players = players
         this.board = board
         this.currentPlayer = currentPlayer || players[0]
+        this.hasWon = hasWon
     }
 
     chooseColumn(column) {
@@ -43,6 +44,10 @@ class Game {
             ){
                 // add winner useState to stop game?
                 console.log("Player One Wins!");
+                this.hasWon = true
+                console.log(this.hasWon);
+
+
             }
             // // check those squares to see if they all have the class of player-two
             if (cell1.player === 'player-2' &&
@@ -52,7 +57,10 @@ class Game {
             ){
                 // add winner useState to stop game?
                 console.log("Player Two Wins!");
+                this.hasWon = true
+                console.log(this.hasWon);
             }
+
 
         }
 
@@ -77,6 +85,7 @@ class Game {
 
     takeTurn(id) {
         //call all the above functions
+
         console.log(`running taketurn with id ${id}, current player is ${this.currentPlayer}`);
         this.claimCell(id)
         this.checkWin()
