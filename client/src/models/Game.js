@@ -49,7 +49,7 @@ class Game {
                 // add winner useState to stop game?
                 console.log("Player One Wins!");
                 this.hasWon = true
-                console.log(this.hasWon);
+                console.log("Check win", this.hasWon);
                 this.createWinPayload()
             }
             // // check those squares to see if they all have the class of player-two
@@ -61,7 +61,7 @@ class Game {
                 // add winner useState to stop game?
                 console.log("Player Two Wins!");
                 this.hasWon = true
-                console.log(this.hasWon);
+                console.log("Check win", this.hasWon);
                 this.createWinPayload()
             }
         }

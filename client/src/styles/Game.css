@@ -63,13 +63,13 @@ h3{
     margin: .311rem;
 }
 
-.player-1 {
+.player-2 {
     background-color: red;
     background-image: url("../images/lightsabers/withBG/red2.png");
     border-radius: 10px;
 }
 
-.player-2 {
+.player-1 {
     background-color: yellow;
     background-image: url("../images/lightsabers/withBG/Blue2.png");
     border-radius: 10px;

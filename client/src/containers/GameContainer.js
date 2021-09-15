@@ -72,17 +72,17 @@ const GameContainer = () => {
 
     const handleResetClick = () => {
         game.newBoard();
-        let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+        let updatedGame = new Game(game.players, game.board)
         setGame(updatedGame)
     }
 
     const handleSelectClick = (event) => {
-        
+        console.log("has won logging", game.hasWon)
         if (!game.hasWon) {
         const id = parseInt(event.target.id)
 
         game.chooseColumn(id)
-        let updatedGame = new Game(game.players, game.board, game.currentPlayer)
+        let updatedGame = new Game(game.players, game.board, game.currentPlayer, game.hasWon)
         setGame(updatedGame)
         } else{
             console.log('srs, its gg');

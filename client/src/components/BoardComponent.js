@@ -10,13 +10,15 @@ const BoardComponent = ({game, board, handleClick, handleSelectClick}) => {
 
     return (
         <>
-            <button id="0" onClick ={handleSelectClick}>Column 1</button>
-            <button id="1" onClick ={handleSelectClick}>Column 2</button>
-            <button id="2" onClick ={handleSelectClick}>Column 3</button>
-            <button id="3" onClick ={handleSelectClick}>Column 4</button>
-            <button id="4" onClick ={handleSelectClick}>Column 5</button>
-            <button id="5" onClick ={handleSelectClick}>Column 6</button>
-            <button id="6" onClick ={handleSelectClick}>Column 7</button>
+            <div className ='selectButtons'>
+                <button id="0" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="1" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="2" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="3" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="4" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="5" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+                <button id="6" className={`slot-${game.currentPlayer}`} onClick ={handleSelectClick}></button>
+            </div>
 
             <div className='grid' onClick= {(event) => {
                 console.log(event.target)

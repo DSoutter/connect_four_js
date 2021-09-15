@@ -11,3 +11,33 @@
     
 
 }
+
+.slot-2{
+    padding: 48px 45px;
+    float: center;
+    opacity: 0.1;;
+    background-image: url("../images/lightsabers/WOBG/red2.png");
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+.slot-2:hover{
+    opacity: 1;;
+}
+.slot-1{
+    padding: 48px 45px;
+    float: center;
+    opacity: 0.1;;
+    background-image: url("../images/lightsabers/WOBG/Blue2.png");
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+.slot-1:hover{
+    opacity: 1;;
+}
+.selectButtons {
+    text-align: center;
+};
