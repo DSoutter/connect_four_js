@@ -2,13 +2,16 @@ import Game from '../models/Game';
 import CellComponent from './CellComponent';
 import '../styles/OtherComponent.css'
 import ApiComponent from './ApiComponent';
+import { useState } from 'react'
 
 const determineHighlight = (column, hintColumn) => {
     return (column === hintColumn) ? "highlight" : ""
 }
 
-const BoardComponent = ({game, board, handleClick, handleSelectClick, hintColumn}) => {
+const BoardComponent = ({game, board, handleClick, handleSelectClick}) => {
     // hintColumn is a number which is the best column
+    const [hintColumn, setHintColumn] = useState(null)
+
     const renderCells = board.map((cell) => {
         return <CellComponent player={cell.player} winning={cell.winning} id={cell.id} key={cell.id} handleClick={handleClick}/>
     })
@@ -32,7 +35,7 @@ const BoardComponent = ({game, board, handleClick, handleSelectClick, hintColumn
                 {renderCells}
 
             </div>
-            <ApiComponent game={game}/>
+            <ApiComponent game={game} handleHintUpdate={(newHint) => setHintColumn(newHint)} />
         </>
     )
 }
