@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/Game.css'
 
-const CellComponent = ({cell}) => {
+const CellComponent = ({player, winning, id, handleClick}) => {
     
-    const playerClass = (cell.player) ? `player-${cell.player}` : ""
+    const playerClass = (player) ? `${player}` : ""
 
     return (
-        <div className={`cell ${playerClass}`}> 
-            {cell.id}
+        <div className={`cell ${playerClass}`} onClick={handleClick}> 
+            {id}
         </div>
     )
 }

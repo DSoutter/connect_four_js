@@ -2,10 +2,29 @@ import winningArrays from './WinningArrays.js';
 import Cell from './Cell.js';
 
 class Game {
-    constructor(players = [1, 2], board = []) {
+    constructor(players = [1, 2], board = [], currentPlayer) {
         this.players = players
         this.board = board
-        this.currentPlayer = players[0]
+        this.currentPlayer = currentPlayer || players[0]
+    }
+
+    chooseColumn(column) {
+        // TODO: logic for using column number to determine which id should be claimed
+        // work out which cell id should be claimed in column
+        // claim the cell
+        // in react once this has been called update the state and it should rerender `setGame(game)`
+        for (let i=column+42; i>=0; i-=7) {
+            console.log(this.board[i].player);
+            if (!this.board[i].player) {
+                this.board[i].player = `player-${this.currentPlayer}`
+                console.log(this.currentPlayer);
+                console.log(this.board[i].player, i);
+                this.takeTurn(i);
+                break
+            } else {
+                console.log("error else");
+            }
+        }
     }
 
     checkWin() {
@@ -36,6 +55,10 @@ class Game {
             }
 
         }
+
+        //some kind of win screen...
+
+        
     }
 
     claimCell(id) {
@@ -54,12 +77,19 @@ class Game {
 
     takeTurn(id) {
         //call all the above functions
+        console.log(`running taketurn with id ${id}, current player is ${this.currentPlayer}`);
         this.claimCell(id)
         this.checkWin()
         this.changeCurrentPlayer()
     }
 
-
+    boardMaker() {
+        const boardArray = this.board.map(cell => {
+            if (!cell.player) { return 0} 
+            else {return parseInt(cell.player.slice(-1))}
+        })
+        return boardArray
+    }
 
     newBoard() {
         this.board = []
@@ -67,7 +97,7 @@ class Game {
             const cell = new Cell(i);
             this.board.push(cell)
         }
-        console.log(this.board);
+        // console.log(this.board);
     }
 }
 

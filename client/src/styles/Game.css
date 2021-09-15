@@ -2,6 +2,11 @@ h3{
     text-align: center;
 }
 
+/* add logic so only hover if not taken */
+/* .cell:hover{
+    background-color: rgba(170, 168, 172, 0.55);
+} */
+
 .grid{
     border: 5px solid black;
     border-radius: 1.5rem;
@@ -34,7 +39,7 @@ h3{
 .cell{
     /* border: 5px solid rgb(64, 69, 74); */
     background-color: black;
-    background-image: url("../images/lightsabers/withBG/Blue.png");
+    /* background-image: url("../images/lightsabers/withBG/Blue.png"); */
     /* background-image: url("../images/lightsabers/WOBG/Blue2.png"); */
 
     background-size: cover;
@@ -45,9 +50,10 @@ h3{
 
 /* add logic so only hover if not taken */
 .cell:hover{
-    background-color: rgba(170, 168, 172, 0.876);
+    /* background-color: rgba(170, 168, 172, 0.876); */
     opacity: 0.8;
 }
+
 
 .bottom-row{
     margin: .311rem;
