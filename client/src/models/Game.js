@@ -109,8 +109,7 @@ class Game {
         }
         const winningBoard = this.boardMaker()
         const payload = {finalBoard: winningBoard, winner: winningPlayer}
-        console.log(payload);
-        return payload
+        GamesService.postGame(payload)
     }
 
     newBoard() {
