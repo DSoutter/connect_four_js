@@ -1,5 +1,6 @@
 import winningArrays from './WinningArrays.js';
 import Cell from './Cell.js';
+import GamesService from '../services/GameServices.js';
 
 class Game {
     constructor(players = [1, 2], board = [], currentPlayer, hasWon = false) {
@@ -28,6 +29,9 @@ class Game {
         }
     }
 
+
+    
+
     checkWin() {
         //some logic that checks if the game has been won
         for (let i = 0; i < winningArrays.length; i++) {
@@ -46,8 +50,7 @@ class Game {
                 console.log("Player One Wins!");
                 this.hasWon = true
                 console.log(this.hasWon);
-
-
+                this.createWinPayload()
             }
             // // check those squares to see if they all have the class of player-two
             if (cell1.player === 'player-2' &&
@@ -59,14 +62,10 @@ class Game {
                 console.log("Player Two Wins!");
                 this.hasWon = true
                 console.log(this.hasWon);
+                this.createWinPayload()
             }
-
-
         }
-
-        //some kind of win screen...
-
-        
+        //some kind of win screen...       
     }
 
     claimCell(id) {
@@ -88,8 +87,9 @@ class Game {
 
         console.log(`running taketurn with id ${id}, current player is ${this.currentPlayer}`);
         this.claimCell(id)
-        this.checkWin()
         this.changeCurrentPlayer()
+        this.checkWin()
+        
     }
 
     boardMaker() {
@@ -98,6 +98,19 @@ class Game {
             else {return parseInt(cell.player.slice(-1))}
         })
         return boardArray
+    }
+
+    createWinPayload() {
+        let winningPlayer = null
+        if (this.currentPlayer == 2) {
+            winningPlayer = 1
+        } else {
+            winningPlayer = 2
+        }
+        const winningBoard = this.boardMaker()
+        const payload = {finalBoard: winningBoard, winner: winningPlayer}
+        console.log(payload);
+        return payload
     }
 
     newBoard() {
