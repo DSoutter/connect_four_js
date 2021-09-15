@@ -102,7 +102,7 @@ class Game {
 
     createWinPayload() {
         let winningPlayer = null
-        if (this.currentPlayer == 2) {
+        if (this.currentPlayer === 2) {
             winningPlayer = 1
         } else {
             winningPlayer = 2
