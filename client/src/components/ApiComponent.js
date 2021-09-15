@@ -1,22 +1,42 @@
 import React, {useEffect, useState} from "react";
 import Game from '../models/Game'
 import '../styles/Game.css'
+import '../styles/OtherComponent.css'
 
-const ApiComponent = ({game}) => {
+function compareFn (firstEl, secondEl) {
+    if (firstEl[1] > secondEl[1]) {
+        return -1
+    } if (firstEl[1] < secondEl[1]) {
+        return 1
+    } else {
+        return 0
+    }
+}
 
-    const [computerMoves, setComputerMoves] = useState([])
+const ApiComponent = ({game, handleHintUpdate}) => {
+
+    const [computerMoves, setComputerMoves] = useState(null)
     const [moveList, setMoveList] = useState([])
+    // const [bestMove, setBestMove] = useState(null)
 
-
-    
-    console.log(`heres the game board length: ${game.board.length}`);
+    useEffect(() => {
+        if (computerMoves) {
+            const thisArray = Object.entries(computerMoves).sort(compareFn)
+            console.log(thisArray)
+            console.log(thisArray[0]);
+            const bestColumn = thisArray[0][0];
+            handleHintUpdate(parseInt(bestColumn))
+            setComputerMoves(null)
+        }
+    }, [computerMoves])
 
     const apiResponse = function () {
         let currentBoard = game.boardMaker().join("")
 
-        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=${currentBoard}&player=2`)
+        fetch(`http://kevinalbs.com/connect4/back-end/index.php/getMoves?board_data=${currentBoard}&player=${game.currentPlayer}`)
         .then(res => res.json())
-        .then(moves => setComputerMoves(Object.values(moves)));
+        .then(moves => setComputerMoves(moves));
+        
         
     }
 
@@ -27,20 +47,10 @@ const ApiComponent = ({game}) => {
     const handleApiClick = function () {
         apiResponse()
     }
-
-
-    // console.log(computerMoves)}
-
-    // find the highest value in the array of 7...
-    const bestMove = (computerMoves) => {
-        let currentBest = (computerMoves[0])
-        if (computerMoves.length >0) {
-        return currentBest
-    }}
     
-    if (computerMoves.length === 0) {
+    if (!computerMoves) {
         return (
-        <button onClick={handleApiClick}>Want a hint?</button>)
+        <button className='hintButton' onClick={handleApiClick}>Use the Force</button>)
     } else { 
 
     const boardMaker = game.board.map(cell => {
@@ -49,17 +59,19 @@ const ApiComponent = ({game}) => {
     })
     
 
+
+    // const secondBest = thisArray[1][0]
+    
+
         return (
             <>
-            {/* we want to display the max index 1 (value) of the seven arrays */}
-            {/* <p> Here's the board: {game.board[1].player}</p> */}
-            <button onClick={handleApiClick}>Want a hint?</button>
-            
-            <p id='hint'>The column's relative strengths are: {(computerMoves)}</p>
-
+                {/* we want to display the max index 1 (value) of the seven arrays */}
+                {/* <p> Here's the board: {game.board[1].player}</p> */}
+                <button className='hintButton' onClick={handleApiClick}>Use the Force</button>
             </>
         )
-    }}
+        }
+    }
 
 export default ApiComponent
 

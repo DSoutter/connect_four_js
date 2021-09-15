@@ -1,5 +1,4 @@
 .score {
-    font-family: 'PT Sans', sans-serif;
     color: black;
     font-family: 'StarJedi';
     text-align: center + 16 px;
@@ -12,6 +11,7 @@
 
 }
 
+/* Selection Buttons Styling */
 .slot-2{
     padding: 48px 45px;
     float: center;
@@ -40,4 +40,21 @@
 }
 .selectButtons {
     text-align: center;
-};
+}
+
+/* Use the Force button  */
+.hintButton {
+ background-color: yellow;
+
+}
+
+.highlight {
+    opacity: 1;
+    border-radius: 100%;
+    box-shadow: gold 0 0 6px 2px;
+}
+
+#game-container {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Header.css'
 
+
 const HeaderComponent = ({handleResetClick}) => {
 
 
@@ -9,9 +10,9 @@ const HeaderComponent = ({handleResetClick}) => {
     return (
         <>
         <div className="header" >
-            STAR WARS Connect-4 </div>
-        <div>
-            <button onClick={handleResetClick}>Reset</button>
+            STAR WARS Connect-4
+        
+        <button className='resetButton' onClick={handleResetClick}>Not the droids you're looking for?</button>
         </div>
         </>
     )
