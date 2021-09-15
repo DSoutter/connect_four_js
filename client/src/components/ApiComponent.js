@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Game from '../models/Game'
 import '../styles/Game.css'
+import '../styles/OtherComponent.css'
 
 const ApiComponent = ({game}) => {
 
@@ -40,7 +41,7 @@ const ApiComponent = ({game}) => {
     
     if (computerMoves.length === 0) {
         return (
-        <button onClick={handleApiClick}>Want a hint?</button>)
+        <button className='hintButton' onClick={handleApiClick}>Use the Force</button>)
     } else { 
 
     const boardMaker = game.board.map(cell => {
@@ -53,7 +54,7 @@ const ApiComponent = ({game}) => {
             <>
             {/* we want to display the max index 1 (value) of the seven arrays */}
             {/* <p> Here's the board: {game.board[1].player}</p> */}
-            <button onClick={handleApiClick}>Want a hint?</button>
+            <button className='hintButton' onClick={handleApiClick}>Use the Force</button>
             
             <p id='hint'>The column's relative strengths are: {(computerMoves)}</p>
 
