@@ -83,3 +83,38 @@ h3{
     /* position: absolute; */
 
 }
+
+.winner-1{
+    font-family: 'StarJedi';
+    font-size: 30px;
+    text-align: center;
+    color: rgb(55, 55, 221);
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(73, 70, 221),
+    0 0 82px rgb(72, 52, 248),
+    0 0 92px rgb(82, 54, 240),
+    0 0 102px rgb(21, 25, 250),
+    0 0 151px rgb(38, 0, 255);
+}
+
+.winner-2 {
+    font-family: 'StarJedi';
+    font-size: 30px;
+    text-align: center;
+    color: rgb(218, 70, 70);
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(221, 70, 70),
+    0 0 82px rgb(248, 52, 78),
+    0 0 92px rgb(240, 54, 54),
+    0 0 102px rgb(250, 21, 52),
+    0 0 151px rgb(255, 0, 34);
+
+}
+
+

@@ -30,7 +30,6 @@ class Game {
     }
 
 
-    
 
     checkWin() {
         //some logic that checks if the game has been won
