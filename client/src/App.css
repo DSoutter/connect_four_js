@@ -1,3 +1,6 @@
 .App {
-  text-align: center;
+  background-image: url("./images/battle.jpg");
+  height: 100%;
+  background-position: center + 1rem;
+  background-size: cover;
 }

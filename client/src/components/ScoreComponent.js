@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/OtherComponent.css'
 
 const ScoreComponent = ({games}) => {
 
@@ -14,17 +15,10 @@ const ScoreComponent = ({games}) => {
             }
         }
     
-
-    // for (let step = 0; step < 5; step++) {
-    //     // Runs 5 times, with values of step 0 through 4.
-    //     console.log('Walking east one step');
-    //   }
-
     return (
         <>
-            <h3>I'm the Score Component</h3>
-            <p>Player 1 has won: {playerOne} games</p>
-            <p>Player 2 has won: {playerTwo} games</p>
+            {/* <h3>I'm the Score Component</h3> */}
+            <h3 className="score"><span>  Score player one: {playerOne} player two: {playerTwo}  </span></h3>
         </>
     )
 

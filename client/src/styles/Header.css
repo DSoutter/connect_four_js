@@ -1,0 +1,23 @@
+.header{
+    background-color: yellow;
+    font-family: 'StarJedi';
+    font-size: 36px;
+    padding-left: 18px;
+    padding-bottom: 8px;
+}
+
+.resetButton {
+    font-family: 'PT Sans', sans-serif;
+    background-color: yellow;
+    color: black;
+    font-size: 22px;
+    border-radius: 0.5rem;
+    border-width: 4px;
+    border-color: black;
+    position:sticky;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    float: right;
+    margin-top: 8px;
+    margin-right: 8px;
+}

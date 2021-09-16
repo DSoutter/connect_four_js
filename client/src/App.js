@@ -1,13 +1,13 @@
 import './App.css';
-import ScreenContainer from './containers/ScreenContainer'
-
+import GameContainer from './containers/GameContainer'
 
 function App() {
   return (
     <div className='App'>
-      <ScreenContainer/>
+      <GameContainer/>
     </div>
   );
 }
 
 export default App;
+
