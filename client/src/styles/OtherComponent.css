@@ -20,7 +20,8 @@
     background-size: cover;
     background-position: center;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: 100%;
+
 }
 .slot-2:hover{
     opacity: 1;;
@@ -33,7 +34,8 @@
     background-size: cover;
     background-position: center;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: 100%;
+
 }
 .slot-1:hover{
     opacity: 1;;
@@ -44,8 +46,19 @@
 
 /* Use the Force button  */
 .hintButton {
- background-color: yellow;
-
+    font-family: 'PT Sans', sans-serif;
+    background-color: yellow;
+    color: black;
+    font-size: 22px;
+    border-radius: 0.5rem;
+    border-width: 4px;
+    border-color: black;
+    position:sticky;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    float: right;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 .highlight {
