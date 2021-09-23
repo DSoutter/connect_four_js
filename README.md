@@ -19,4 +19,4 @@ Extensions
 * ‘Trainer’ quiz option showing situational good and bad moves 
 * Display a GIF when player wins
 * Make curser into a ‘stone’ when near the board
-* Make a button that will display a form that will allow the user to input their name so it can be displayed
+* Make a button that will display a form that will allow the user to input their name so it can be displayed# connect_4_browser_game
