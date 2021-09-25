@@ -37,7 +37,6 @@ const ApiComponent = ({game, handleHintUpdate}) => {
         .then(res => res.json())
         .then(moves => setComputerMoves(moves));
         
-        
     }
 
     // useEffect(() => {
