@@ -1,3 +1,7 @@
+![](https://github.com/DSoutter/connect_four_js/blob/main/client/src/images/Screenshot.png)
+
+
+
 Connect Four Game Brief
 
 Make a browser based connect four game that responds to user input. 
